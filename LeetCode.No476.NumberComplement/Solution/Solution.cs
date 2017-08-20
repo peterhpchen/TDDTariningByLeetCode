@@ -6,7 +6,7 @@ namespace LeetCode.No476.NumberComplement.Solution
     {
         public int FindComplement(int num)
         {
-            return 0;
+            return num^1;
         }
     }
 }
