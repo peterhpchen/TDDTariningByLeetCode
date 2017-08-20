@@ -23,5 +23,11 @@ namespace LeetCode.No476.NumberComplement.Solution.Test
         {
             findImplementShouldBe(0, 1);
         }
+
+        [Fact]
+        public void Return2WhenNumIs5()
+        {
+            findImplementShouldBe(5, 2);
+        }
     }
 }
