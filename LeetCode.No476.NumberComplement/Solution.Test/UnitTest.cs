@@ -7,9 +7,15 @@ namespace LeetCode.No476.NumberComplement.Solution.Test
     {
         private Solution _solution = new Solution();
 
-        private void FindImplementShouldBe(int num, int respect)
+        private void findImplementShouldBe(int num, int respect)
         {
             Assert.Equal(_solution.FindComplement(num), respect);
+        }
+
+        [Fact]
+        public void Return0WhenNumIs1()
+        {
+            findImplementShouldBe(1, 0);
         }
     }
 }
