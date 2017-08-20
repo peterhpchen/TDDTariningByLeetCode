@@ -17,5 +17,11 @@ namespace LeetCode.No476.NumberComplement.Solution.Test
         {
             findImplementShouldBe(1, 0);
         }
+
+        [Fact]
+        public void Return1WhenNumIs0()
+        {
+            findImplementShouldBe(0, 1);
+        }
     }
 }
