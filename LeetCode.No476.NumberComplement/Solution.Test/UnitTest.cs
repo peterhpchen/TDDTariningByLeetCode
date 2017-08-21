@@ -7,27 +7,27 @@ namespace LeetCode.No476.NumberComplement.Solution.Test
     {
         private Solution _solution = new Solution();
 
-        private void findImplementShouldBe(int num, int respect)
+        private void findImplementShouldBe(int expect, int num)
         {
-            Assert.Equal(_solution.FindComplement(num), respect);
+            Assert.Equal(expect, _solution.FindComplement(num));
         }
 
         [Fact]
-        public void Return0WhenNumIs1()
-        {
-            findImplementShouldBe(1, 0);
-        }
-
-        [Fact]
-        public void Return1WhenNumIs0()
+        public void Expect0WhenNumIs1()
         {
             findImplementShouldBe(0, 1);
         }
 
         [Fact]
-        public void Return2WhenNumIs5()
+        public void Expect1WhenNumIs0()
         {
-            findImplementShouldBe(5, 2);
+            findImplementShouldBe(1, 0);
+        }
+
+        [Fact]
+        public void Expect2WhenNumIs5()
+        {
+            findImplementShouldBe(2, 5);
         }
     }
 }
