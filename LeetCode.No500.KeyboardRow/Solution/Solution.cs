@@ -6,7 +6,7 @@ namespace LeetCode.No500.KeyboardRow.Solution
     {
         public string[] FindWords(string[] words)
         {
-            throw new NotImplementedException();
+            return words;
         }
     }
 }
