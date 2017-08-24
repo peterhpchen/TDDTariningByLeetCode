@@ -11,5 +11,12 @@ namespace LeetCode.No500.KeyboardRow.Solution.Test
         {
             Assert.Equal(expect, _solution.FindWords(words));
         }
+
+        [Theory]
+        [InlineData(new string[] {"A"}, new string[] {"A"})]
+        public void FindWordsTheory(string[] expect, string[] words)
+        {
+            findWordsShouldBe(expect, words);
+        }
     }
 }
