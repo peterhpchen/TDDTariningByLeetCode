@@ -18,6 +18,7 @@ namespace LeetCode.No500.KeyboardRow.Solution.Test
         [InlineData(new string[] { }, new string[] { "AZ" })]
         [InlineData(new string[] { "AS" }, new string[] { "AS" })]
         [InlineData(new string[] { "AA" }, new string[] { "AA" })]
+        [InlineData(new string[] { }, new string[] { "Az" })]
         public void FindWordsTheory(string[] expect, string[] words)
         {
             findWordsShouldBe(expect, words);
