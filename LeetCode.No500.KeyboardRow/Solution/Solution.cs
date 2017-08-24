@@ -21,7 +21,7 @@ namespace LeetCode.No500.KeyboardRow.Solution
                 char letter = word[i];
                 for (int j = 0; j < rowGroup.Length; j++)
                 {
-                    if (rowGroup[j].IndexOf(letter) > -1)
+                    if (rowGroup[j].IndexOf(char.ToUpper(letter)) > -1)
                     {
                         if (i == 0)
                         {
