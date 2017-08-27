@@ -10,6 +10,7 @@ namespace LeetCode.No40.CombinationSumII.Solution.Test
         public static IEnumerable<object[]> Expected1WhenCandidates1Target1()
         {
             yield return new object[] { new List<IList<int>>() { new List<int>() { 1 } }, new int[] { 1 }, 1 };
+            yield return new object[] { new List<IList<int>>() { new List<int>() { 1 } }, new int[] { 1, 2 }, 1 };
         }
     }
 
