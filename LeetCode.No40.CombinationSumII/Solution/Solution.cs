@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,7 +17,30 @@ namespace LeetCode.No40.CombinationSumII.Solution
                 result.Add(new List<int>() { candidate });
             }
 
-            return result;
+            return result.Distinct(new ListComparer<IList<int>>()).ToList();
+        }
+    }
+
+    public class ListComparer<T> : IEqualityComparer<T>
+     where T : IList<int>
+    {
+        public ListComparer()
+        {
+            Console.WriteLine("constructor");
+        }
+
+        public bool Equals(T x, T y)
+        {
+            return x.SequenceEquals(y);
+        }
+        public int GetHashCode(T obj)
+        {
+            int hCode = obj[0];
+            for (int i = 1; i < obj.Count(); i++)
+            {
+                hCode = hCode ^ obj[i];
+            }
+            return hCode.GetHashCode();
         }
     }
 }
