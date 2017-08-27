@@ -24,15 +24,11 @@ namespace LeetCode.No40.CombinationSumII.Solution
     public class ListComparer<T> : IEqualityComparer<T>
      where T : IList<int>
     {
-        public ListComparer()
-        {
-            Console.WriteLine("constructor");
-        }
-
         public bool Equals(T x, T y)
         {
-            return x.SequenceEquals(y);
+            return x.SequenceEqual(y);
         }
+
         public int GetHashCode(T obj)
         {
             int hCode = obj[0];
