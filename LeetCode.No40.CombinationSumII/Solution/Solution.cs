@@ -9,15 +9,25 @@ namespace LeetCode.No40.CombinationSumII.Solution
     {
         public IList<IList<int>> CombinationSum2(int[] candidates, int target)
         {
-            IList<IList<int>> result = new List<IList<int>>();
+            IList<IList<int>> resultList = new List<IList<int>>();
+            IList<int> result = new List<int>();
 
             foreach (int candidate in candidates)
             {
-                if (candidate != target) continue;
-                result.Add(new List<int>() { candidate });
+                if (candidate != target)
+                {
+                    if (target >= candidate)
+                    {
+                        result.Add(candidate);
+                        target = target - candidate;
+                    }
+                    continue;
+                }
+                result.Add(candidate);
             }
+            resultList.Add(result);
 
-            return result.Distinct(new ListComparer<IList<int>>()).ToList();
+            return resultList.Distinct(new ListComparer<IList<int>>()).ToList();
         }
     }
 
