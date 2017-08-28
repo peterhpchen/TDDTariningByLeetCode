@@ -24,6 +24,7 @@ namespace LeetCode.No40.CombinationSumII.Solution
                     continue;
                 }
                 result.Add(candidate);
+                target = target - candidate;
             }
             resultList.Add(result);
 
