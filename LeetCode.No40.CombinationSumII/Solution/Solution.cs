@@ -11,16 +11,18 @@ namespace LeetCode.No40.CombinationSumII.Solution
         {
             IList<IList<int>> resultList = new List<IList<int>>();
             IList<int> result = new List<int>();
+            int currentTarget = target;
 
             foreach (int candidate in candidates)
             {
-                if (target >= candidate)
+                if (target == candidate) resultList.Add(new List<int>() { candidate });
+                if (currentTarget >= candidate)
                 {
                     result.Add(candidate);
-                    target = target - candidate;
+                    currentTarget = currentTarget - candidate;
                 }
             }
-            resultList.Add(result);
+            if (result.Sum() == target) resultList.Add(result);
 
             return resultList.Distinct(new ListComparer<IList<int>>()).ToList();
         }
