@@ -15,6 +15,7 @@ namespace LeetCode.No40.CombinationSumII.Solution.Test
             yield return new object[] { new List<IList<int>>() { new List<int>() { 1, 1 } }, new int[] { 1, 1 }, 2 };
             yield return new object[] { new List<IList<int>>() { new List<int>() { 1 } }, new int[] { 1, 2 }, 1 };
             yield return new object[] { new List<IList<int>>() { new List<int>() { 2 } }, new int[] { 1, 2 }, 2 };
+            yield return new object[] { new List<IList<int>>() { new List<int>() { 1, 2 }, new List<int>() { 3 } }, new int[] { 3, 1, 2 }, 3 };
         }
     }
 
