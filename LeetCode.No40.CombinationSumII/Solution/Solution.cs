@@ -15,7 +15,7 @@ namespace LeetCode.No40.CombinationSumII.Solution
 
             foreach (int candidate in candidates)
             {
-                if (target == candidate) resultList.Add(new List<int>() { candidate });
+                if (target == candidate) { resultList.Add(new List<int>() { candidate }); continue; }
                 if (currentTarget >= candidate)
                 {
                     result.Add(candidate);
@@ -24,7 +24,7 @@ namespace LeetCode.No40.CombinationSumII.Solution
             }
             if (result.Sum() == target) resultList.Add(result);
 
-            return resultList.Distinct(new ListComparer<IList<int>>()).ToList();
+            return resultList.OrderBy(x => x[0]).Distinct(new ListComparer<IList<int>>()).ToList();
         }
     }
 
