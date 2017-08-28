@@ -14,17 +14,11 @@ namespace LeetCode.No40.CombinationSumII.Solution
 
             foreach (int candidate in candidates)
             {
-                if (candidate != target)
+                if (target >= candidate)
                 {
-                    if (target >= candidate)
-                    {
-                        result.Add(candidate);
-                        target = target - candidate;
-                    }
-                    continue;
+                    result.Add(candidate);
+                    target = target - candidate;
                 }
-                result.Add(candidate);
-                target = target - candidate;
             }
             resultList.Add(result);
 
