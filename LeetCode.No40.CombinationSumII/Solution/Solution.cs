@@ -7,10 +7,18 @@ namespace LeetCode.No40.CombinationSumII.Solution
 {
     public class Solution
     {
+        private List<string> identityList = new List<string>();
         public IList<IList<int>> CombinationSum2(int[] candidates, int target)
         {
             IList<IList<int>> resultList = new List<IList<int>>();
             candidates = candidates.OrderBy(x => x).ToArray();
+            resultList = combine(candidates, target);
+            return resultList.Distinct(new ListComparer<IList<int>>()).ToList();
+        }
+
+        private IList<IList<int>> combine(int[] candidates, int target)
+        {
+            List<IList<int>> resultList = new List<IList<int>>();
             int currentTarget = target;
             int candidate = candidates.First();
             int[] nextCandidates = candidates.Where((val, idx) => idx != 0).ToArray();
@@ -22,11 +30,13 @@ namespace LeetCode.No40.CombinationSumII.Solution
                 return resultList;
             }
 
-            if(nextCandidates.Length==0)return resultList;
+            if (nextCandidates.Length == 0) return resultList;
+            if (target < nextCandidates[0]) return resultList;
 
             if (nextTarget > 0)
             {
-                IList<IList<int>> nextTargetResultList = CombinationSum2(nextCandidates, nextTarget);
+
+                IList<IList<int>> nextTargetResultList = combine(nextCandidates, nextTarget);
                 if (nextTargetResultList != null)
                 {
                     foreach (IList<int> nextTargetResult in nextTargetResultList)
@@ -37,14 +47,14 @@ namespace LeetCode.No40.CombinationSumII.Solution
                         resultList.Add(result);
                     }
                 }
-                IList<IList<int>> targetResultList = CombinationSum2(nextCandidates, target);
-                foreach (IList<int> targetResult in targetResultList)
+                IList<IList<int>> targetResultList = combine(nextCandidates, target);
+                if (targetResultList != null)
                 {
-                    resultList.Add(targetResult);
+                    resultList.AddRange(targetResultList);
                 }
 
             }
-            return resultList.OrderBy(x => x[0]).Distinct(new ListComparer<IList<int>>()).ToList();
+            return resultList;
         }
     }
 
