@@ -72,7 +72,7 @@ List\<List\<int>>因為是List of list的結構, 如果不自定義compare會無
 >定義支援物件之相等比較的方法
     
 要繼承此介面要實做兩個method: Equals跟GetHashCode, 以下說明這兩個method的用途: 
-#### Equal
+#### Equals
 >比對兩個數相不相等
 此題為了要比對List<int>之間是否相等使用了SequenceEqual
 ```C#
