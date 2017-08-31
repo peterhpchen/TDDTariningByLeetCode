@@ -7,16 +7,15 @@ namespace LeetCode.No40.CombinationSumII.Solution
 {
     public class Solution
     {
-        private List<string> identityList = new List<string>();
         public IList<IList<int>> CombinationSum2(int[] candidates, int target)
         {
             IList<IList<int>> resultList = new List<IList<int>>();
             candidates = candidates.OrderBy(x => x).ToArray();
-            resultList = combine(candidates, target);
+            resultList = combine(new List<int>(), candidates, target);
             return resultList.Distinct(new ListComparer()).OrderBy(x => x, new ListComp()).ToList();
         }
 
-        private IList<IList<int>> combine(int[] candidates, int target)
+        private IList<IList<int>> combine(List<int> current, int[] candidates, int target)
         {
             List<IList<int>> resultList = new List<IList<int>>();
             int currentTarget = target;
@@ -26,7 +25,9 @@ namespace LeetCode.No40.CombinationSumII.Solution
 
             if (nextTarget == 0)
             {
-                resultList.Add(new List<int>() { candidate });
+                IList<int> result = current.ToList();
+                result.Add(candidate);
+                resultList.Add(result);
                 return resultList;
             }
 
@@ -34,20 +35,13 @@ namespace LeetCode.No40.CombinationSumII.Solution
             if (target < nextCandidates[0]) return resultList;
             if (nextTarget < 0) return resultList;
 
-            IList<IList<int>> targetResultList = combine(nextCandidates, target);
+            IList<IList<int>> targetResultList = combine(current, nextCandidates, target);
             if (targetResultList != null) resultList.AddRange(targetResultList);
 
-            IList<IList<int>> nextTargetResultList = combine(nextCandidates, nextTarget);
-            if (nextTargetResultList != null)
-            {
-                foreach (IList<int> nextTargetResult in nextTargetResultList)
-                {
-                    List<int> result = new List<int>();
-                    result.Add(candidate);
-                    result.AddRange(nextTargetResult);
-                    resultList.Add(result);
-                }
-            }
+            List<int> nextCurrent = current.ToList();
+            nextCurrent.Add(candidate);
+            IList<IList<int>> nextTargetResultList = combine(nextCurrent, nextCandidates, nextTarget);
+            if (nextTargetResultList != null) resultList.AddRange(nextTargetResultList);
 
             return resultList;
         }
