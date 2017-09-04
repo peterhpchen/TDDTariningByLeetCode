@@ -18,5 +18,13 @@ namespace LeetCode.No242.ValidAnagram.Solution.Test
             string sameString = "same";
             isAnagramShouldBe(true, sameString, sameString);
         }
+
+        [Fact]
+        public void ExpectedFalseWhenStringNotEqualsAndLength1()
+        {
+            string s = "s";
+            string t = "t";
+            isAnagramShouldBe(false, s, t);
+        }
     }
 }
