@@ -26,5 +26,13 @@ namespace LeetCode.No242.ValidAnagram.Solution.Test
             string t = "t";
             isAnagramShouldBe(false, s, t);
         }
+
+        [Fact]
+        public void ExpectedTrueWhenSabAndTba()
+        {
+            string s = "ab";
+            string b = "ba";
+            isAnagramShouldBe(true, s, b);
+        }
     }
 }
