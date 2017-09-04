@@ -6,7 +6,8 @@ namespace LeetCode.No242.ValidAnagram.Solution
     {
         public bool IsAnagram(string s, string t)
         {
-            throw new NotImplementedException();
+            if (s.Equals(t)) return true;
+            return false;
         }
     }
 }
