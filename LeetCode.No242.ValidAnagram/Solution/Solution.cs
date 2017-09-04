@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace LeetCode.No242.ValidAnagram.Solution
 {
@@ -7,10 +8,20 @@ namespace LeetCode.No242.ValidAnagram.Solution
     {
         public bool IsAnagram(string s, string t)
         {
-            string sortS = new string (s.OrderBy(x => x).ToArray());
-            string sortT = new string (t.OrderBy(x => x).ToArray());
-            if (sortS.Equals(sortT)) return true;
-            return false;
+            if (!s.Length.Equals(t.Length)) return false;
+            return isAnagram(s, t);
+        }
+
+        private bool isAnagram(string s, string t)
+        {
+            List<char> sList = s.ToList<char>();
+            foreach (char tChar in t)
+            {
+                int charIndex = sList.IndexOf(tChar);
+                if (charIndex == -1) return false;
+                sList.RemoveAt(charIndex);
+            }
+            return true;
         }
     }
 }
