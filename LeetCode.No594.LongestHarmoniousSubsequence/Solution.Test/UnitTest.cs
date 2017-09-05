@@ -29,5 +29,11 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(2, new int[] { 1, 2 });
         }
+
+        [Fact]
+        public void Expected2WhenNums123()
+        {
+            findLHSShouldBe(2, new int[] { 1, 2, 3 });
+        }
     }
 }
