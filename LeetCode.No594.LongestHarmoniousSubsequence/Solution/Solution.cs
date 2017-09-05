@@ -10,12 +10,13 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
             int numsLength = nums.Length;
             if (numsLength <= 1) return numsLength;
 
-            int countArrayLength = nums.Max();
+            int countArrayIndexStart = nums.Min();
+            int countArrayLength = nums.Max() - countArrayIndexStart + 1;
             int[] countArray = new int[countArrayLength];
 
             foreach (int num in nums)
             {
-                countArray[num - 1] += 1;
+                countArray[num - countArrayIndexStart] += 1;
             }
 
             int LengthOfLHS = 0;
