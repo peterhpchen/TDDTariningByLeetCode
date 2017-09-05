@@ -21,7 +21,11 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
             int LengthOfLHS = 0;
             for (int i = 0; i < countArrayLength - 1; i++)
             {
-                int thisLength = countArray[i] + countArray[i + 1];
+                int count = countArray[i];
+                int nextCount = countArray[i + 1];
+
+                if (count == 0 || nextCount == 0) continue;
+                int thisLength = count + nextCount;
                 if (thisLength > LengthOfLHS) LengthOfLHS = thisLength;
             }
 
