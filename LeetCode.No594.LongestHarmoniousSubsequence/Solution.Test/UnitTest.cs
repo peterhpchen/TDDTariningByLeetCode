@@ -15,13 +15,13 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         [Fact]
         public void Expected1WhenLengthOfNums1()
         {
-            findLHSShouldBe(1, new int[] { 1 });
+            findLHSShouldBe(0, new int[] { 1 });
         }
 
         [Fact]
         public void Expected1WhenNums13()
         {
-            findLHSShouldBe(1, new int[] { 1, 3 });
+            findLHSShouldBe(0, new int[] { 1, 3 });
         }
 
         [Fact]
@@ -53,6 +53,5 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(7, new int[] { -1, 0, -1, 0, -1, 0, -1 });
         }
-
     }
 }
