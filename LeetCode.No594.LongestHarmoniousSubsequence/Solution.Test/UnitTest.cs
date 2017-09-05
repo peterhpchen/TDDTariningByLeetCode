@@ -17,5 +17,11 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(1, new int[] { 1 });
         }
+
+        [Fact]
+        public void Expected1WhenNums13()
+        {
+            findLHSShouldBe(1, new int[] { 1, 3 });
+        }
     }
 }
