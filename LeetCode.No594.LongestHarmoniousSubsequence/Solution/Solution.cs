@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
 {
@@ -9,24 +10,24 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
         {
             if (nums.Length <= 1) return 0;
 
-            int countArrayIndexStart = nums.Min();
-            int countArrayLength = nums.Max() - countArrayIndexStart + 1;
-            int[] countArray = new int[countArrayLength];
-
-            foreach (int num in nums)
-            {
-                countArray[num - countArrayIndexStart] += 1;
-            }
+            List<int> NumList = nums.ToList();
+            var sortNums = NumList.OrderBy(x => x);
 
             int LengthOfLHS = 0;
-            for (int i = 0; i < countArrayLength - 1; i++)
+            int numCount = 0;
+            
+            for (int i = 0; i < sortNums.Count(); i += numCount)
             {
-                int count = countArray[i];
-                int nextCount = countArray[i + 1];
+                int currentNum = sortNums.ElementAt(i);
 
-                if (count == 0 || nextCount == 0) continue;
-                int thisLength = count + nextCount;
-                if (thisLength > LengthOfLHS) LengthOfLHS = thisLength;
+                numCount = sortNums.Count(x => x == currentNum);
+
+                int nextNum = sortNums.ElementAt(numCount);
+
+                if (nextNum - currentNum != 1) continue;
+                int HS = numCount + sortNums.Count(x => x == nextNum);
+                
+                if (HS > LengthOfLHS) LengthOfLHS = HS;
             }
 
             if (LengthOfLHS == 1) return 0;
