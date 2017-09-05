@@ -7,7 +7,9 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
     {
         public int FindLHS(int[] nums)
         {
-            if (nums.Length == 1) return 1;
+            int numsLength = nums.Length;
+            if (numsLength <= 1) return numsLength;
+
             int countArrayLength = nums.Max();
             int[] countArray = new int[countArrayLength];
 
