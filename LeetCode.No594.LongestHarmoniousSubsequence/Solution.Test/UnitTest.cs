@@ -53,5 +53,11 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(7, new int[] { -1, 0, -1, 0, -1, 0, -1 });
         }
+
+        [Fact]
+        public void ExpectedLHSWhenSameNumsLengthMoreThanLHS()
+        {
+            findLHSShouldBe(2, new int[] { 1, 4, 1, 3, 1, -14, 1, 13 });
+        }
     }
 }
