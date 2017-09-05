@@ -47,5 +47,12 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(0, new int[] { });
         }
+
+        [Fact]
+        public void Expected7WhenNumsHaveNegativeNum()
+        {
+            findLHSShouldBe(7, new int[] { -1, 0, -1, 0, -1, 0, -1 });
+        }
+
     }
 }
