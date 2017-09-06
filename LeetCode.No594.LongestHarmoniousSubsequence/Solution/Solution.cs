@@ -28,14 +28,16 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
                 if (i >= sortNumsCount) break;
                 int nextNum = sortNums.ElementAt(i);
 
+                int nextNumCount = sortNums.Count(x => x == nextNum);
+
                 if (nextNum - currentNum == 1)
                 {
-                    int HS = numCount + sortNums.Count(x => x == nextNum);
+                    int HS = numCount + nextNumCount;
                     if (HS > LengthOfLHS) LengthOfLHS = HS;
                 }
 
                 currentNum = nextNum;
-                numCount = sortNums.Count(x => x == nextNum);
+                numCount = nextNumCount;
             }
 
             if (LengthOfLHS == 1) return 0;
