@@ -65,5 +65,11 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution.Test
         {
             findLHSShouldBe(0, new int[] { 11702305, 84420925, 37477084, 27336327, 72660336, 59126505, 5750846, 32621729, 661313, 33925857 });
         }
+
+        [Fact]
+        public void Expected0WhenNums1111()
+        {
+            findLHSShouldBe(0, new int[] { 1, 1, 1, 1 });
+        }
     }
 }
