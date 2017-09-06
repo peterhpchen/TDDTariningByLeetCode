@@ -11,7 +11,7 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
             if (nums.Length <= 1) return 0;
 
             List<int> NumList = nums.ToList();
-            var sortNums = NumList.OrderBy(x => x);
+            var sortNums = NumList.OrderBy(x => x).ToList();
 
             int LengthOfLHS = 0;
             int numCount = 0;
@@ -21,14 +21,19 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
             int currentNum = sortNums.ElementAt(i);
             numCount = sortNums.Count(x => x == currentNum);
 
-            while (i < sortNumsCount)
+            while (sortNumsCount > 0)
             {
-                i += numCount;
+                if (numCount >= sortNumsCount) break;
+                sortNums.RemoveRange(0, numCount);
+                sortNumsCount -= numCount;
+                int nextNum = sortNums.ElementAt(0);
 
-                if (i >= sortNumsCount) break;
-                int nextNum = sortNums.ElementAt(i);
-
-                int nextNumCount = sortNums.Count(x => x == nextNum);
+                int nextNumCount = 0;
+                foreach (int sortNum in sortNums)
+                {
+                    if (nextNum != sortNum) break;
+                    nextNumCount++;
+                }
 
                 if (nextNum - currentNum == 1)
                 {
