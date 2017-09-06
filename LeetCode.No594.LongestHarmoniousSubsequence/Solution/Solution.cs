@@ -15,19 +15,27 @@ namespace LeetCode.No594.LongestHarmoniousSubsequence.Solution
 
             int LengthOfLHS = 0;
             int numCount = 0;
-            
-            for (int i = 0; i < sortNums.Count(); i += numCount)
+            int sortNumsCount = sortNums.Count();
+
+            int i = 0;
+            int currentNum = sortNums.ElementAt(i);
+            numCount = sortNums.Count(x => x == currentNum);
+
+            while (i < sortNumsCount)
             {
-                int currentNum = sortNums.ElementAt(i);
+                i += numCount;
 
-                numCount = sortNums.Count(x => x == currentNum);
+                if (i >= sortNumsCount) break;
+                int nextNum = sortNums.ElementAt(i);
 
-                int nextNum = sortNums.ElementAt(numCount);
+                if (nextNum - currentNum == 1)
+                {
+                    int HS = numCount + sortNums.Count(x => x == nextNum);
+                    if (HS > LengthOfLHS) LengthOfLHS = HS;
+                }
 
-                if (nextNum - currentNum != 1) continue;
-                int HS = numCount + sortNums.Count(x => x == nextNum);
-                
-                if (HS > LengthOfLHS) LengthOfLHS = HS;
+                currentNum = nextNum;
+                numCount = sortNums.Count(x => x == nextNum);
             }
 
             if (LengthOfLHS == 1) return 0;
