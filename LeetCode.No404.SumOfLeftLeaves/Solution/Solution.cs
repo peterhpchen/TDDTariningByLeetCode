@@ -6,6 +6,7 @@ namespace LeetCode.No404.SumOfLeftLeaves.Solution
     {
         public int SumOfLeftLeaves(TreeNode root)
         {
+            if (root.left == null && root.right == null) return 0;
             throw new NotImplementedException();
         }
     }
