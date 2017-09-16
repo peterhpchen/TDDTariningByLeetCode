@@ -17,5 +17,15 @@ namespace LeetCode.No404.SumOfLeftLeaves.Solution.Test
            TreeNode root = new TreeNode(0);
            sumOfLeftLeavesShouldBe(0, root);
         }
+
+        [Fact]
+        public void expected0WhenTreeOnlyHaveRightNode()
+        {
+            TreeNode root = new TreeNode(1);
+            TreeNode right = new TreeNode(2);
+            root.right = right;
+
+            sumOfLeftLeavesShouldBe(0, root);
+        }
     }
 }
