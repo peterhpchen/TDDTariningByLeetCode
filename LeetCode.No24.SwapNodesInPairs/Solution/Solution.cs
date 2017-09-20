@@ -7,8 +7,10 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution
         public ListNode SwapPairs(ListNode head)
         {
             ListNode newHead = head.next;
+            ListNode headNext = newHead.next;
+            head.next = headNext;
             newHead.next = head;
-            head.next = null;
+
             return newHead;
         }
 
