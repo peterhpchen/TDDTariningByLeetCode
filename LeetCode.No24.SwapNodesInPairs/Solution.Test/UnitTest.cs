@@ -16,6 +16,17 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
         }
 
         [Fact]
+        public void expectedSameWhenLengthOfListIs1()
+        {
+            //When
+            ListNode head = new ListNode(1);
+            ListNode expected = new ListNode(1);
+
+            //Then
+            swapPairsShouldBe(expected, head);
+        }
+
+        [Fact]
         public void expectedReverseWhenLengthOfListIsTwo()
         {
             //When
