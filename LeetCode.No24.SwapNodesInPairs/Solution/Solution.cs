@@ -6,6 +6,7 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution
     {
         public ListNode SwapPairs(ListNode head)
         {
+            if (head.next == null) return head;
             ListNode newHead = head.next;
             ListNode headNext = newHead.next;
             head.next = headNext;
