@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
@@ -10,12 +11,8 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
         private void swapPairsShouldBe(ListNode expected, ListNode head)
         {
             ListNode result = _solution.SwapPairs(head);
-            do
-            {
-                Assert.Equal(expected.val, result.val);
-                result = result.next;
-                expected = expected.next;
-            } while (expected.next != null);
+            ListNodeComparer listNodeComparer = new ListNodeComparer();
+            Assert.Equal(expected, result, listNodeComparer);
         }
 
         [Fact]
@@ -29,6 +26,54 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
 
             //Then
             swapPairsShouldBe(expected, head);
+        }
+
+        [Fact]
+        public void expectedReverse1and2NodeWhenLengthOfListIs3()
+        {
+            //When
+            ListNode head = new ListNode(1);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(3);
+            ListNode expected = new ListNode(2);
+            expected.next = new ListNode(1);
+            expected.next.next = new ListNode(3);
+
+            //Then
+            swapPairsShouldBe(expected, head);
+        }
+    }
+
+    public class ListNodeComparer : IEqualityComparer<ListNode>
+    {
+        public bool Equals(ListNode listNode1, ListNode listNode2)
+        {
+            if (listNode1 == null && listNode2 == null) return true;
+            if (listNode1 == null || listNode2 == null) return false;
+
+            do
+            {
+                if (listNode1 == null) return false;
+                if (listNode2 == null) return false;
+                if (!listNode1.val.Equals(listNode2.val)) return false;
+                listNode1 = listNode1.next;
+                listNode2 = listNode2.next;
+            } while (listNode1 != null || listNode2 != null);
+
+            return true;
+        }
+
+        public int GetHashCode(ListNode listNode)
+        {
+            int hCode = 0;
+
+            do
+            {
+                hCode ^= listNode.val;
+                listNode = listNode.next;
+            } while (listNode != null);
+
+            return hCode;
         }
     }
 }
