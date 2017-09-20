@@ -9,7 +9,13 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
 
         private void swapPairsShouldBe(ListNode expected, ListNode head)
         {
-            Assert.Equal(expected, _solution.SwapPairs(head));
+            ListNode result = _solution.SwapPairs(head);
+            do
+            {
+                Assert.Equal(expected.val, result.val);
+                result = result.next;
+                expected = expected.next;
+            } while (expected.next != null);
         }
 
         [Fact]

@@ -6,7 +6,10 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution
     {
         public ListNode SwapPairs(ListNode head)
         {
-            throw new NotImplementedException();
+            ListNode newHead = head.next;
+            newHead.next = head;
+            head.next = null;
+            return newHead;
         }
 
     }
