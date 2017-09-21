@@ -53,6 +53,23 @@ namespace LeetCode.No24.SwapNodesInpairs.Solution.Test
             //Then
             swapPairsShouldBe(expected, head);
         }
+
+        [Fact]
+        public void expectedSwitchPairNodesWhenLengthOfListIsEven()
+        {
+            //When
+            ListNode head = new ListNode(1);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(3);
+            head.next.next.next = new ListNode(4);
+            ListNode expected = new ListNode(2);
+            expected.next = new ListNode(1);
+            expected.next.next = new ListNode(4);
+            expected.next.next.next = new ListNode(3);
+
+            //Then
+            swapPairsShouldBe(expected, head);
+        }
     }
 
     public class ListNodeComparer : IEqualityComparer<ListNode>
