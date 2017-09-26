@@ -16,6 +16,18 @@ namespace LeetCode.No61.RotateList.Solution.Test
         }
 
         [Fact]
+        public void ExpectedSameWhenOnlyOneNode()
+        {
+            //Given
+            ListNode expected = new ListNode(1);
+            ListNode head = new ListNode(1);
+            int k = new Random(Guid.NewGuid().GetHashCode()).Next();
+
+            //When
+            RotateRightShouldBe(expected, head, k);
+        }
+
+        [Fact]
         public void ExpectedNullWhenListIsNull()
         {
             //Given
