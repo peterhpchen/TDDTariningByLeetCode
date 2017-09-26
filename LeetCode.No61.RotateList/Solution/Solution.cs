@@ -6,8 +6,9 @@ namespace LeetCode.No61.RotateList.Solution
     {
         public ListNode RotateRight(ListNode head, int k)
         {
-            if(head==null) return null;
-            if(head.next==null) return head;
+            if (head == null) return null;
+            if (head.next == null) return head;
+            if (k == 0) return head;
             throw new NotImplementedException();
         }
     }
