@@ -16,6 +16,19 @@ namespace LeetCode.No61.RotateList.Solution.Test
         }
 
         [Fact]
+        public void ExpectedSameWhenKIsZero()
+        {
+            //Given
+            int randomNum = new Random(Guid.NewGuid().GetHashCode()).Next(100);
+            ListNode expected = getListNodeByLength(randomNum);
+            ListNode head = expected;
+            int k = 0;
+
+            //When
+            RotateRightShouldBe(expected, head, k);
+        }
+
+        [Fact]
         public void ExpectedSameWhenOnlyOneNode()
         {
             //Given
@@ -37,6 +50,20 @@ namespace LeetCode.No61.RotateList.Solution.Test
 
             //When
             RotateRightShouldBe(expected, head, k);
+        }
+
+        private ListNode getListNodeByLength(int length)
+        {
+            ListNode head = new ListNode(1);
+            ListNode current = head;
+
+            for (int i = 2; i <= length; i++)
+            {
+                current.next = new ListNode(i);
+                current = current.next;
+            }
+
+            return head;
         }
     }
 
