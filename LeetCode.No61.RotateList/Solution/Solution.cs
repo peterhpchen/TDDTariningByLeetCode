@@ -14,14 +14,20 @@ namespace LeetCode.No61.RotateList.Solution
 
             Stack<ListNode> nodes = new Stack<ListNode>();
             ListNode current = head;
-            ListNode result = null;
+            ListNode result = head;
+            int length = 0;
 
             do
             {
+                length++;
                 nodes.Push(current);
+
                 ListNode currentNext = current.next;
                 if (currentNext == null)
                 {
+                    k = k % length;
+                    if (k == 0) break;
+
                     for (int i = 0; i < k; i++)
                     {
                         nodes.Pop();
