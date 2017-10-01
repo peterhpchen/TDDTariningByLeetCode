@@ -16,6 +16,19 @@ namespace LeetCode.No61.RotateList.Solution.Test
         }
         
         [Fact]
+        public void ExpectedSameWhenKIs2andListLengthIs2()
+        {
+            //Given
+            ListNode expected = getListNodeByLength(2);
+
+            ListNode head = getListNodeByLength(2);
+            int k = 2;
+
+            //When
+            RotateRightShouldBe(expected, head, k);
+        }
+
+        [Fact]
         public void ExpectedHeadIsTheSecondDescNodeWhenKIs2()
         {
             //Given
