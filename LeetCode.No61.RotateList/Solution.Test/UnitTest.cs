@@ -14,6 +14,23 @@ namespace LeetCode.No61.RotateList.Solution.Test
             ListNodeComparer listNodeComparer = new ListNodeComparer();
             Assert.Equal(expected, result, listNodeComparer);
         }
+        
+        [Fact]
+        public void ExpectedHeadIsTheSecondDescNodeWhenKIs2()
+        {
+            //Given
+            ListNode expected = new ListNode(4);
+            expected.next = new ListNode(5);
+            expected.next.next = new ListNode(1);
+            expected.next.next.next = new ListNode(2);
+            expected.next.next.next.next = new ListNode(3);
+
+            ListNode head = getListNodeByLength(5);
+            int k = 2;
+
+            //When
+            RotateRightShouldBe(expected, head, k);
+        }
 
         [Fact]
         public void ExpectedHeadIsTheLastNodeWhenKIs1()
