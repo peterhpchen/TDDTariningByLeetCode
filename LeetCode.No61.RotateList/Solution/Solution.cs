@@ -22,15 +22,21 @@ namespace LeetCode.No61.RotateList.Solution
                 ListNode currentNext = current.next;
                 if (currentNext == null)
                 {
-                    result = nodes.Pop();
-                    result.next = head;
-                    nodes.Pop().next = null;
+                    for (int i = 0; i < k; i++)
+                    {
+                        nodes.Pop();
+                    }
+                    ListNode end = nodes.Pop();
+                    result = end.next;
+
+                    current.next = head;
+                    end.next = null;
                     break;
                 }
-                current = current.next;
+                current = currentNext;
             } while (current != null);
-            
-            return result;;
+
+            return result;
         }
     }
 
