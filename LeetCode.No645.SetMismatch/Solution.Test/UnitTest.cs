@@ -12,6 +12,15 @@ namespace LeetCode.No645.SetMismatch.Solution.Test
         }
 
         [Fact]
+        public void ExpectedElement2and1ArrayWhenTheNumsIsElement2and2()
+        {
+            int[] nums = new int[] { 2, 2 };
+            int[] expected = new int[] { 2, 1 };
+
+            findErrorNumsShouldBe(expected, nums);
+        }
+
+        [Fact]
         public void ExpectedEmptyArrayWhenTheLengthOfNumsLessThan1()
         {
             int[] nums = new int[] { 1 };
