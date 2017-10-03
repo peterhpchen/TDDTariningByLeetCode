@@ -29,6 +29,7 @@ namespace LeetCode.No645.SetMismatch.Solution
             {
                 if (checkArray[i] != 0) continue;
                 result[1] = i + 1;
+                break;
             }
 
             return result;
