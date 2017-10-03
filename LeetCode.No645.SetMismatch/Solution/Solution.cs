@@ -6,6 +6,7 @@ namespace LeetCode.No645.SetMismatch.Solution
     {
         public int[] FindErrorNums(int[] nums)
         {
+            if (nums.Length < 2) return new int[] { };
             throw new NotImplementedException();
         }
     }
