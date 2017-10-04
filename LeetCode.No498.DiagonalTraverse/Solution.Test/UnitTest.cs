@@ -12,6 +12,16 @@ namespace LeetCode.No498.DiagonalTraverse.Solution.Test
             Assert.Equal(expected, _solution.FindDiagonalOrder(matrix));
         }
 
+
+        [Fact]
+        public void expectedCombinedColArrayWhenTheLengthOfRowOfMatrixIsAll1()
+        {
+            int[,] matrix = new int[,] { { 1 }, { 2 }, { 3 } };
+            int[] expected = new int[] { 1, 2, 3 };
+
+            findDiagonalOrderShouldBe(expected, matrix);
+        }
+
         [Fact]
         public void expectedFirstRowArrayWhenMatrixIsOnlyOneRow()
         {
