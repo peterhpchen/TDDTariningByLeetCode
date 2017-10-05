@@ -13,6 +13,15 @@ namespace LeetCode.No451.SortCharactersByFrequency.Solution.Test
         }
 
         [Fact]
+        public void Expected_b_b_a_WhenSIs_a_b_b()
+        {
+            string s = "abb";
+            string expected = "bba";
+
+            frequencySortShouldBe(expected, s);
+        }
+
+        [Fact]
         public void ExpectedTheSameStringWhenTheLengthOfSIsLessThan3()
         {
             string s = "ab";
