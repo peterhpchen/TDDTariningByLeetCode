@@ -20,7 +20,10 @@ namespace LeetCode.No406.QueueReconstructionByHeight.Solution
                 .GroupBy(x => x.index)
                 .Select(x => x.Select(s => s.x).ToArray());
 
-            var orderedPeopleList = peopleList.OrderBy(x => x[HINDEX]);
+            var orderedPeopleByHeightList = peopleList.OrderBy(x => x[HINDEX]);
+            var orderedPeopleByKList = orderedPeopleByHeightList.GroupBy(x => x[HINDEX])
+                .SelectMany(x => x.OrderBy(s => s[KINDEX]));
+            var orderedPeopleList = orderedPeopleByKList;
 
             for (int i = 0; i < length; i++)
             {
