@@ -38,5 +38,14 @@ namespace LeetCode.No406.QueueReconstructionByHeight.Solution.Test
 
             expectedReconstructionQueueShouldBe(expected, people);
         }
+
+        [Fact]
+        public void ExpectedSortByKWhenAllHIsEqual()
+        {
+            int[,] expected = new int[,] { { 1, 0 }, { 1, 1 } };
+            int[,] people = new int[,] { { 1, 1 }, { 1, 0 } };
+
+            expectedReconstructionQueueShouldBe(expected, people);
+        }
     }
 }
