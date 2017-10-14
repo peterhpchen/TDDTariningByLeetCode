@@ -13,14 +13,19 @@ namespace LeetCode.No406.QueueReconstructionByHeight.Solution.Test
         }
 
         [Fact]
-        public void ExpectedSelfWhenTheLengthOfArrayLessThanOne()
+        public void ExpectedEmptyWhenPeopleIsEmpty()
         {
             int[,] expected = new int[,] { };
             int[,] people = new int[,] { };
 
             expectedReconstructionQueueShouldBe(expected, people);
+        }
 
-            people = new int[,] { { 1, 0 } };
+        [Fact]
+        public void ExpectedSelfWhenTheLengthOfArrayLessThanOne()
+        {
+            int[,] expected = new int[,] { { 1, 0 } };
+            int[,] people = new int[,] { { 1, 0 } };
 
             expectedReconstructionQueueShouldBe(expected, people);
         }
