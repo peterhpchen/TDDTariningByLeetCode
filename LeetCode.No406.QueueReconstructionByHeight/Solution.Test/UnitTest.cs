@@ -47,5 +47,14 @@ namespace LeetCode.No406.QueueReconstructionByHeight.Solution.Test
 
             expectedReconstructionQueueShouldBe(expected, people);
         }
+
+        [Fact]
+        public void ExpectedBackKMinusTheLengthOfPersonWhichSameHeightAndKLessThanItself()
+        {
+            int[,] expected = new int[,] { { 1, 0 }, { 2, 0 }, { 1, 2 } };
+            int[,] people = new int[,] { { 2, 0 }, { 1, 2 }, { 1, 0 } };
+
+            expectedReconstructionQueueShouldBe(expected, people);
+        }
     }
 }
