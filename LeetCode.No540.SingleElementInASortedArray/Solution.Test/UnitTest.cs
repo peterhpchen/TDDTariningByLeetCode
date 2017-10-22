@@ -20,5 +20,14 @@ namespace LeetCode.No540.SingleElementInASortedArray.Solution.Test
 
             singleNonDuplicateShouldBe(expected, nums);
         }
+
+        [Fact]
+        public void ExpectedNumWhoseIndexIs0WhenTheLengthOfNumsIs1()
+        {
+            int expected = 5;
+            int[] nums = new int[] { 5 };
+
+            singleNonDuplicateShouldBe(expected, nums);
+        }
     }
 }
