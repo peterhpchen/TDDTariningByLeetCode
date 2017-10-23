@@ -12,22 +12,27 @@ namespace LeetCode.No540.SingleElementInASortedArray.Solution
             if (length == 1) return nums[0];
 
             int centerIndex = length / 2;
+            int currentNum = nums[centerIndex];
+            int previousNum = nums[centerIndex - 1];
+            int afterNum = nums[centerIndex + 1];
 
+            int lengthOfNextNums = centerIndex - 1;
+            int[] nextNums = new int[lengthOfNextNums];
             if (centerIndex % 2 == 0)
             {
-                int currentNum = nums[centerIndex];
-                int previousNum = nums[centerIndex - 1];
-                int afterNum = nums[centerIndex + 1];
-
                 if (currentNum != previousNum && currentNum != afterNum) return currentNum;
-                int lengthOfNextNums = centerIndex - 1;
-                int[] nextNums = new int[centerIndex - 1];
-                if (currentNum == previousNum) Array.Copy(nums, nextNums, centerIndex - 1);
-                if (currentNum == afterNum) Array.Copy(nums, centerIndex + 2, nextNums, 0, centerIndex - 1);
+
+                if (currentNum == previousNum) Array.Copy(nums, nextNums, lengthOfNextNums);
+                if (currentNum == afterNum) Array.Copy(nums, centerIndex + 2, nextNums, 0, lengthOfNextNums);
                 return SingleNonDuplicate(nextNums);
             }
 
-            throw new NotImplementedException();
+            lengthOfNextNums = centerIndex;
+            nextNums = new int[lengthOfNextNums];
+
+            if (currentNum == previousNum) Array.Copy(nums, centerIndex + 1, nextNums, 0, lengthOfNextNums);
+            if (currentNum == afterNum) Array.Copy(nums, nextNums, lengthOfNextNums);
+            return SingleNonDuplicate(nextNums);
         }
     }
 }
