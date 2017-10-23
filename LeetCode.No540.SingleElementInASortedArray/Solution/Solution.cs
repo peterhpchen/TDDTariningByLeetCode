@@ -11,12 +11,20 @@ namespace LeetCode.No540.SingleElementInASortedArray.Solution
             if (nums == null || length == 0) return 0;
             if (length == 1) return nums[0];
 
-            int currentIndex = length / 2;
+            int centerIndex = length / 2;
 
-            if (currentIndex % 2 == 0)
+            if (centerIndex % 2 == 0)
             {
-                int currentNum = nums[currentIndex];
-                if (currentNum != nums[currentIndex - 1] && currentNum != nums[currentIndex + 1]) return currentNum;
+                int currentNum = nums[centerIndex];
+                int previousNum = nums[centerIndex - 1];
+                int afterNum = nums[centerIndex + 1];
+
+                if (currentNum != previousNum && currentNum != afterNum) return currentNum;
+                int lengthOfNextNums = centerIndex - 1;
+                int[] nextNums = new int[centerIndex - 1];
+                if (currentNum == previousNum) Array.Copy(nums, nextNums, centerIndex - 1);
+                if (currentNum == afterNum) Array.Copy(nums, centerIndex + 2, nextNums, 0, centerIndex - 1);
+                return SingleNonDuplicate(nextNums);
             }
 
             throw new NotImplementedException();
