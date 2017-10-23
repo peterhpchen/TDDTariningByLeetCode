@@ -31,10 +31,19 @@ namespace LeetCode.No540.SingleElementInASortedArray.Solution.Test
         }
 
         [Fact]
-        public void ExpectedCenterElementWhenIndexOfCenterElementIsDivisibleBy2AndCenterElementIsNotEqualToNearToEachOther()
+        public void Expected_2_whenNumsIs_1_1_2_5_5()
         {
             int expected = 2;
             int[] nums = new int[] { 1, 1, 2, 5, 5 };
+
+            singleNonDuplicateShouldBe(expected, nums);
+        }
+
+        [Fact]
+        public void Expected_1_whenNumsIs_1_2_2_5_5()
+        {
+            int expected = 1;
+            int[] nums = new int[] { 1, 2, 2, 5, 5 };
 
             singleNonDuplicateShouldBe(expected, nums);
         }
