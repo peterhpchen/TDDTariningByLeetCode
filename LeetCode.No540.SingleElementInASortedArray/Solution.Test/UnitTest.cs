@@ -65,5 +65,14 @@ namespace LeetCode.No540.SingleElementInASortedArray.Solution.Test
 
             singleNonDuplicateShouldBe(expected, nums);
         }
+
+        [Fact]
+        public void Expected_1_whenNumsIs_1_2_2()
+        {
+            int expected = 1;
+            int[] nums = new int[] { 1, 2, 2 };
+
+            singleNonDuplicateShouldBe(expected, nums);
+        }
     }
 }
